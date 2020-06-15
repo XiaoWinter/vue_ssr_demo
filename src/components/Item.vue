@@ -1,6 +1,12 @@
 <!-- Item.vue -->
 <template>
-  <div>{{ item && item.text }}</div>
+  <div>
+    <div>
+
+    {{ item && item.text }}
+    </div>
+    <button @click = "haha" >{{AA}}</button>
+  </div>
 </template>
 
 <script>
@@ -13,6 +19,17 @@ export default {
     // 从 store 的 state 对象中的获取 item。
     item () {
       return this.$store.state.items[this.$route.params.id]
+    }
+  },
+  data:function(){
+    return {
+      AA:"点击"
+    }
+  },
+  methods:{
+    haha:function(){
+      this.AA = "点击成功"
+      console.log(123123)
     }
   }
 }

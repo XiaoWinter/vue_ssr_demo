@@ -14,6 +14,7 @@ module.exports = {
     },
     extensions: ['.js', '.vue', '.json'],
   },
+  mode:"development",
   module: {
     rules: [
     {

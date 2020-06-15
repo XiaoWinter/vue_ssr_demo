@@ -1,5 +1,6 @@
 const express = require('express')
 const server = express()
+const path = require("path")
 
 const { createBundleRenderer } = require('vue-server-renderer')
 
@@ -12,8 +13,7 @@ const renderer = createBundleRenderer(serverBundle, {
     template, // （可选）页面模板
     clientManifest // （可选）客户端构建 manifest
 })
-express.static("/client_bundle")
-  
+server.use(express.static(path.join(__dirname, 'client_bundle')));
   // 在服务器处理函数中……
   server.get('*', (req, res) => {
     const context = { url: req.url ,title:"ssr模板",meta:`

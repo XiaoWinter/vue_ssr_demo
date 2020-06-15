@@ -14,7 +14,7 @@ router.onReady(() => {
     router.beforeResolve((to, from, next) => {
       const matched = router.getMatchedComponents(to)
       const prevMatched = router.getMatchedComponents(from)
-  
+     
       // 我们只关心非预渲染的组件
       // 所以我们对比它们，找出两个匹配列表的差异组件
       let diffed = false

@@ -6,8 +6,8 @@
     "dev": "node server",
     "start": "cross-env NODE_ENV=production node src/entry-server",
     "build": "npm run build:client && npm run build:server",
-    "build:client": " webpack --config webpack.client.js",
-    "build:server": " webpack --config webpack.server.js",
+    "build:client": " webpack --config webpack.client.js --watch",
+    "build:server": " webpack --config webpack.server.js --watch",
     "postinstall": "npm run build"
   },
   "author": "",

@@ -17,8 +17,14 @@ export function createRouter () {
         { path: '/foo', component: Foo },
         { path: '/boo', component: Boo },
         { path: '/list', component: List },
-        { path: '/', component: Home },
-        { path: '/item/:id', component: Item },
+        { path: '/', component: Home,
+          children: [
+            {
+              path: '/item/:id',
+              component: Item
+            }
+          ] },
+        // { path: '/item/:id', component: Item },
     ]
   })
 }
