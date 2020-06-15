@@ -28,12 +28,14 @@
 
 ```json
   "scripts": {
-    "dev": "node server",//服务器
-    "start": "cross-env NODE_ENV=production node src/entry-server",
+    "dev": "nodemon server",
+    "dev:hot":"npm run dev_hot:client && npm run dev_hot:server",
+    "dev_hot:client": " webpack --config webpack.client.js --watch",
+    "dev_hot:server": " webpack --config webpack.server.js --watch",
+    "prod":"node server",
     "build": "npm run build:client && npm run build:server",
-    "build:client": " webpack --config webpack.client.js",
-    "build:server": " webpack --config webpack.server.js",
-    "postinstall": "npm run build"
+    "build:client": " webpack --config webpack.client.js ",
+    "build:server": " webpack --config webpack.server.js "
   },
 ```
 
