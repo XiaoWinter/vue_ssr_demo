@@ -29,7 +29,6 @@
 ```json
   "scripts": {
     "dev": "nodemon server",
-    "dev:hot":"npm run dev_hot:client && npm run dev_hot:server",
     "dev_hot:client": " webpack --config webpack.client.js --watch",
     "dev_hot:server": " webpack --config webpack.server.js --watch",
     "prod":"node server",
@@ -38,4 +37,21 @@
     "build:server": " webpack --config webpack.server.js "
   },
 ```
+#### 开发启动
+
+`npm run dev_hot:client`
+
+`npm run dev_hot:server`
+
+运行
+
+`npm run dev`
+
+#### 打包
+
+`npm run build`
+
+运行
+
+`npm run prod`
 
