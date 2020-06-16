@@ -21,6 +21,8 @@ export default context => {
 
       // Promise 应该 resolve 应用程序实例，以便它可以渲染
       // 对所有匹配的路由组件调用 `asyncData()`
+      
+      //在这里进行数据的预取，这时可以传入数据 
       Promise.all(matchedComponents.map(Component => {
         if (Component.asyncData) {
           return Component.asyncData({

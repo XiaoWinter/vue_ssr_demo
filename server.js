@@ -16,9 +16,14 @@ const renderer = createBundleRenderer(serverBundle, {
 server.use(express.static(path.join(__dirname, 'client_bundle')));
   // 在服务器处理函数中……
   server.get('*', (req, res) => {
-    const context = { url: req.url ,title:"ssr模板",meta:`
-    <meta charset="utf-8"/>
-  `}
+    
+    //带去的信息，1.请求的相关信息 url,cookie
+    const context = 
+      { 
+        url: req.url ,
+        title:"ssr模板",
+        meta:`<meta charset="utf-8"/> `
+      }
     // 这里无需传入一个应用程序，因为在执行 bundle 时已经自动创建过。
     // 现在我们的服务器与应用程序已经解耦！
     renderer.renderToString(context, (err, html) => {
