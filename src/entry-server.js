@@ -1,6 +1,8 @@
 // entry-server.js
 import { createApp } from './app'
 
+
+
 export default context => {
   // 因为有可能会是异步路由钩子函数或组件，所以我们将返回一个 Promise，
     // 以便服务器能够等待所有的内容在渲染前，
@@ -20,16 +22,18 @@ export default context => {
       }
 
       // Promise 应该 resolve 应用程序实例，以便它可以渲染
-      // 对所有匹配的路由组件调用 `asyncData()`
+      // 对所有匹配的路由组件调用 `asyncData()` 
       
       //在这里进行数据的预取，这时可以传入数据 
       Promise.all(matchedComponents.map(Component => {
         if (Component.asyncData) {
           return Component.asyncData({
             store,
-            route: router.currentRoute
+            route: router.currentRoute,
+            data:context.data
           })
         }
+       
       })).then(() => {
         // 在所有预取钩子(preFetch hook) resolve 后，
         // 我们的 store 现在已经填充入渲染应用程序所需的状态。

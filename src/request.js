@@ -1,4 +1,4 @@
-import axios from 'axios'
+const axios = require("axios")
 
 const service = axios.create({
     baseURL: 'https://www.fastmock.site/mock/79366917e4ba9130420b04996b8c3a73/mock',
@@ -89,4 +89,5 @@ service.interceptors.request.use(
     }
   )
   
-  export default service
+
+  module.exports = service

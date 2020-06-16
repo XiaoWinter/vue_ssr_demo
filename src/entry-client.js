@@ -1,6 +1,6 @@
 import { createApp } from './app'
 
-const { app, router } = createApp()
+const { app, router, store } = createApp()
 
 // entry-client.js
 

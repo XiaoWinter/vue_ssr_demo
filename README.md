@@ -24,6 +24,8 @@
 
 ##### [babel](https://babel.docschina.org/)
 
+##### [pm2](https://pm2.keymetrics.io/)
+
 #### 命令
 
 ```json
