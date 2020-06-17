@@ -7,3 +7,4 @@ yarn-error.log
 *.iml
 client_bundle/
 server_bundle/
+log/

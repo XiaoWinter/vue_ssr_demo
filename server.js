@@ -8,6 +8,27 @@ const template = require('fs').readFileSync('./src/template.html', 'utf-8')
 const serverBundle = require('./server_bundle/vue-ssr-server-bundle.json')
 const clientManifest = require('./client_bundle/vue-ssr-client-manifest.json')
 
+const log4js = require("log4js");
+
+const layout = {
+  type: 'pattern',
+  pattern: '%[[ %p %c ] [ %d{yyyy-MM-dd hh:mm:ss} ] [ file: %f ] [line %l:%o] %n%] -- %m',
+};
+
+log4js.configure({
+  appenders: {
+    out: { type: 'stdout',layout: layout},
+    dayFile: { type: 'dateFile', filename: path.join(__dirname,'log/day.log' ),keepFileExt:true,layout: layout }
+  },
+  categories: {
+    default: { appenders: [ 'out', 'dayFile' ], level: 'debug',enableCallStack: true }
+  }
+});
+
+global.log = log4js.getLogger(["out","dayFile"]);
+
+log.info("应用开始执行")
+
 const renderer = createBundleRenderer(serverBundle, {
     runInNewContext: false, // 推荐
     template, // （可选）页面模板
